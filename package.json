@@ -1,0 +1,23 @@
+{
+  "name": "burger-app",
+  "version": "1.0.0",
+  "description": "An app that utilises express, handlebars and mysql that lets users create and eat burgers dynamically. It will also store the data in a mysql database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjalbert13/Burger-app.git"
+  },
+  "author": "Matt Jalbert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjalbert13/Burger-app/issues"
+  },
+  "homepage": "https://github.com/mjalbert13/Burger-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  }
+}
