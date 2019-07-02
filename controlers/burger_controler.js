@@ -15,18 +15,18 @@ router.get("/", function(req, res){
     });
 });
 
-router.post("/", function(req, res){
-    burgers.create(["burger_name"],[req.body.burger_name], function(res){
+router.post("/api/burgers", function(req, res){
+    burgers.create(["burger_name"],[req.body.burger_name], function(){
         res.redirect("/");
     });
 });
 
-router.put("/:id", function(req, res){
+router.put("/api/burgers:id", function(req, res){
 
     var condition = "id = "+ req.params.id;
     console.log("Condition: "+condition);
 
-    burgers.update({ devoured: req.body.devoured}, condition, function(res){
+    burgers.update({ devoured: req.body.devoured}, condition, function(){
         
         res.redirect("/")
         
