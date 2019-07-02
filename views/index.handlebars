@@ -27,7 +27,7 @@
                     <p id="menu-burger">
                         {{this.burger_name}}
                     </p>
-                    <form action="burgers/update/{{this.id}}" method="POST">
+                    <form action="/api/burgers/{{this.id}}" method="PUT">
                         <input type="hidden" name="devoured" value="true">
                         <button type="submit" class="btn btn-primary" id="devour-burger">Devour!</button>
                     </form>
@@ -47,7 +47,7 @@
                 {{this.burger_name}}
               </p>
             </li>
-            <form action="burgers/update/{{this.id}}" method="PUT">
+            <form action="/api/burgers/{{this.id}}" method="PUT">
              <input type="hidden" name="devoured" value="false">
           {{/if}}
         {{/each}}
