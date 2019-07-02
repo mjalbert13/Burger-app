@@ -3,19 +3,19 @@ $(function() {
       event.preventDefault();
 
       var id = $(this).data("id");
-      var newBurger = $(this).data("devour");
+      var newdDevour = $(this).data("devour");
   
       var newBurgerState = {
-        devoured: newBurger
+        devoured: newdDevour
       };
   
       // Send the PUT request.
-      $.ajax("/api/burgers/" + id, {
+      $.ajax("/api/burgers/:" + id, {
         type: "PUT",
         data: newBurgerState
       }).then(
         function() {
-          console.log("changed Burger to", newBurger);
+          console.log("changed Burger to", newdDevour);
           // Reload the page to get the updated list
           location.reload();
         }
@@ -34,11 +34,11 @@ $(function() {
       // Send the POST request.
       $.ajax("/api/burgers", {
         type: "POST",
-        data: newMenuItem
+        data: newMenuItem.name
 
       }).then(
         function() {
-          console.log("created new burger");
+          console.log("created new burger" +newMenuItem.name);
           // Reload the page to get the updated list
           location.reload();
         }

@@ -14,7 +14,7 @@ router.get("/", function(req, res){
     });
 });
 
-router.post("/burgers", function(req, res){
+router.post("/burgers/create", function(req, res){
     console.log("\n=== Attempting to create burger  =====\n")
     burger.create([
         "burger_name", "devoured"
@@ -26,7 +26,7 @@ router.post("/burgers", function(req, res){
     });
 });
 
-router.put("/burgers/:id", function(req, res){
+router.put("/burgers/update/:id", function(req, res){
     console.log("\n====== Attempting to devour burger=======\n")
     var condition = "id = "+ req.params.id;
     console.log("Condition: "+condition);
