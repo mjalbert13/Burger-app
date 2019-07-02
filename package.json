@@ -4,6 +4,7 @@
   "description": "An app that utilises express, handlebars and mysql that lets users create and eat burgers dynamically. It will also store the data in a mysql database.",
   "main": "index.js",
   "scripts": {
+    "start": "server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
