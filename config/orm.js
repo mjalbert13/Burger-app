@@ -6,6 +6,7 @@ function printQuestionMarks(num){
     for(var i = 0; i < num; i++){
         arr.push("?");
     }
+    console.log("Printed question marks:  "+arr.toString())
     return arr.toString();
 }
 
@@ -22,6 +23,7 @@ function objToSql(ob) {
             arr.push(key+"="+val);
         }
     }
+    console.log("\n==== orm objToSql =====\n"+ arr.toString());
     return arr.toString();
 }
 
@@ -31,15 +33,18 @@ var orm = {
         var queryString = "SELECT * FROM "+tableInput+";";
         connection.query(queryString, function(err, result){
             if(err) throw err;
-            cb(result);
+            cb(result)
+            console.log("\n========== ORM All is working============\n")
         });
     },
 
-    create: function(tableInput, col,  vals, cb){
-        var queryString = "INSERT INTO "+tableInput;
+    create: function(table, cols,  vals, cb){
+        var queryString = "INSERT INTO "+table;
+
+        console.log("Qstring:  "+queryString+"====\n");
 
         queryString +=  " (";
-        queryString +=  col.toString();
+        queryString +=  cols.toString();
         queryString +=   ") ";
         queryString +=  "VALUES (";
         queryString +=  printQuestionMarks(vals.length);
@@ -50,11 +55,12 @@ var orm = {
         connection.query(queryString, vals, function(err, result){
             if(err) throw err;
             cb(result);
+            console.log("\n======= ORM Create working ======\n")
         });
     },
 
-    update: function(tableInput, objColVals, colVal, cb) {
-        var queryString = "UPDATE "+tableInput;
+    update: function(table, objColVals, condition, cb) {
+        var queryString = "UPDATE "+table;
 
         queryString +=  " SET ";
         queryString += objToSql(objColVals);
@@ -62,10 +68,11 @@ var orm = {
         queryString += condition;
 
         console.log(queryString);
-        connection.query(queryString, [true, colVal],function(err,result){
+        connection.query(queryString, function(err,result){
             if(err) throw err;
             
             cb(result);
+            console.log("\n==========ORM Update working =========\n")
         });
     }
 };

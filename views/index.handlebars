@@ -1,3 +1,21 @@
+<style>
+  #menu {
+    background: wheat;
+    border: 3px solid grey;
+  }
+
+  #eaten {
+    background: lightblue;
+    border:  3px solid gray;
+  }
+
+  #update  {
+    background: lightgreen;
+    border: 3px solid gray;
+  }
+
+</style>
+
 <div class="row">
 
 <div class="col-md-5 col-md-offset-1" id="menu">
@@ -9,7 +27,7 @@
                     <p id="menu-burger">
                         {{this.burger_name}}
                     </p>
-                    <form action="burgers/update/{{this.id}}?_method=POST" method="POST">
+                    <form action="burgers/update/{{this.id}}" method="POST">
                         <input type="hidden" name="devoured" value="true">
                         <button type="submit" class="btn btn-primary" id="devour-burger">Devour!</button>
                     </form>
@@ -19,18 +37,17 @@
     </ul>
 </div>
 
-<div class="col-md-5" id="eaten">
-      <br><br><br>
+<div class="col-md-5 col-md-offset-1" id="eaten">
       <h2 class="eaten-title">Eaten Burgers</h2>
       <ul class="burgers-eaten">
         {{#each burgers}}
-          {{#if this.devoured}}
+          {{#if devoured}}
             <li>
               <p id="eaten-burgers">
                 {{this.burger_name}}
               </p>
             </li>
-            <form action="burgers/update/{{this.id}}?_method=PUT" method="PUT">
+            <form action="burgers/update/{{this.id}}" method="PUT">
              <input type="hidden" name="devoured" value="false">
           {{/if}}
         {{/each}}
@@ -43,8 +60,8 @@
   <div class="col-md-2"></div>
     <div class="col-md-4" id="update">
       <br><br><br>
-        <form class="create-update-form" action="burgers/create" method="POST">
-          <h2 class="add-title">Add a Burger to teh menu</h2>
+        <form class="create-form" action="burgers/create" method="POST">
+          <h2 class="add-title">Add a Burger!</h2>
           <div class="form-group">
             <label for="newBurger">Burger Name:</label>
             <input type="hidden" name="devoured" value="0">
