@@ -28,7 +28,7 @@
                         {{this.burger_name}}
                     </p>
                     <form action="/api/burgers/{{this.id}}" method="PUT">
-                        <input type="hidden" name="devoured" value="true">
+                        <input type="hidden" name="action" value="true">
                         <button type="submit" class="btn btn-primary" id="devour-burger"name ="action">Devour!</button>
                     </form>
                 </li>
