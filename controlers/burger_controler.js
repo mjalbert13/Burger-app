@@ -22,11 +22,11 @@ router.post("/api/burgers/create", function(req, res){
         req.body.burger_name, req.body.devoured
     ], function(result){
         console.log("\nrouter js post method\n")
-        res.json({id: result.insertId});
+        res.redirect("/");
     });
 });
 
-router.put("api/burgers/:id", function(req, res){
+router.post("/api/burgers/:id", function(req, res){
     console.log("\n====== Attempting to devour burger=======\n")
     var condition = "id = "+ req.params.id;
     console.log("Condition: "+condition);
@@ -38,7 +38,7 @@ router.put("api/burgers/:id", function(req, res){
                 return res.status(404).end();
             }else{
                 console.log("\n router.js put method\n")
-                res.status(200).end();
+                res.redirect("/");
             }    
     });
 });

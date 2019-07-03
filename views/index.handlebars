@@ -29,7 +29,7 @@
                     </p>
                     <form action="/api/burgers/{{this.id}}" method="PUT">
                         <input type="hidden" name="devoured" value="true">
-                        <button type="submit" class="btn btn-primary" id="devour-burger">Devour!</button>
+                        <button type="submit" class="btn btn-primary" id="devour-burger"name ="action">Devour!</button>
                     </form>
                 </li>
             {{/unless}}
@@ -47,8 +47,8 @@
                 {{this.burger_name}}
               </p>
             </li>
-            <form action="/api/burgers/{{this.id}}" method="PUT">
-             <input type="hidden" name="devoured" value="false">
+            <form action="/api/burgers/{{this.id}}" method="POST">
+             <input type="hidden" name="action" value="false">
           {{/if}}
         {{/each}}
       </ul>
@@ -60,13 +60,13 @@
   <div class="col-md-2"></div>
     <div class="col-md-4" id="update">
       <br><br><br>
-        <form class="create-form" action="burgers/create" method="POST">
+        <form action="/api/burgers/create" method="POST">
           <h2 class="add-title">Add a Burger!</h2>
           <div class="form-group">
             <label for="newBurger">Burger Name:</label>
             <input type="hidden" name="devoured" value="0">
             <input type="text" id="newBurger" name="burger_name">
-          <button type="submit" class="btn btn-secondary create-form" >Add Burger</button>
+          <button type="submit" class="btn btn-secondary create-form" name ="action" >Add Burger</button>
         </form>
       </div>
     </div>

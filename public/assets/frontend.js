@@ -10,17 +10,17 @@ $(function() {
       };
   
       // Send the PUT request.
-      $.ajax("/api/burgers/" + id,{
-        type: "PUT",
-        data: newBurgerState
-      }).then(
-        function() {
-          console.log("changed Burger to", newdDevour);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
+    //   $.ajax("/api/burgers/:id" + id,{
+    //     type: "PUT",
+    //     data: newBurgerState
+    //   }).then(
+    //     function() {
+    //       console.log("changed Burger to", newdDevour);
+    //       // Reload the page to get the updated list
+    //       location.reload();
+    //     }
+    //   );
+     });
   
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
@@ -32,17 +32,17 @@ $(function() {
       };
   
       // Send the POST request.
-      $.ajax("/api/burgers/create", {
-        type: "POST",
-        data: newMenuItem.name
+      // $.ajax("/api/burgers/create", {
+      //   type: "POST",
+      //   data: newMenuItem.name
 
-      }).then(
-        function() {
-          console.log("created new burger" +newMenuItem.name);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
+      // }).then(
+      //   function() {
+      //     console.log("created new burger" +newMenuItem.name);
+      //     // Reload the page to get the updated list
+      //     location.reload();
+      //   }
+      // );
     });
   
   });
